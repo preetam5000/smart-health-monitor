@@ -61,3 +61,4 @@ async function dbClear(store) {
     r.onerror = () => reject(r.error);
   });
 }
+ 
