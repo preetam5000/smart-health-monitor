@@ -1,3 +1,4 @@
+
 const DB_NAME = "health-db";
 const DB_VERSION = 1;
 const STORE_PROFILE = "profile";
@@ -62,9 +63,7 @@ async function dbClear(store) {
   });
 }
 
-/***********************
- * Application State   *
- ***********************/
+
 let hospitals = [];
 let userLat = null;
 let userLon = null;
@@ -93,9 +92,6 @@ const commonSymptoms = [
   "Fever",
 ];
 
-/***********************
- * Utilities & Helpers *
- ***********************/
 function escapeForJs(str = "") {
   return String(str).replace(/'/g, "\\'").replace(/\n/g, " ");
 }
@@ -118,7 +114,6 @@ function getDistance(lat1, lon1, lat2, lon2) {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-// safe helper to read number fields that might not exist in HTML
 function getNumberValue(id, fallback = null) {
   const el = document.getElementById(id);
   if (!el) return fallback;
@@ -128,38 +123,26 @@ function getNumberValue(id, fallback = null) {
   return isNaN(n) ? fallback : n;
 }
 
-// safe helper to read text fields
 function getTextValue(id, fallback = "") {
   const el = document.getElementById(id);
   return el ? (el.value || "") : fallback;
 }
 
-/*******************************
- * Qualitative condition helpers
- *
- * We convert numeric or symptom data into
- * small 0-10 scores for plotting:
- *  - FeverSeverity (0-10) derived from temperature or "Fever" symptom
- *  - PainSeverity  (0-10) derived from "Chest pain" and "Headache"
- *******************************/
+
 function feverSeverityFromRecord(record) {
-  // prefer temperature if present, otherwise use Fever symptom
   if (record.temperature != null && !isNaN(record.temperature)) {
     const t = Number(record.temperature);
-    // map typical ranges to 0-10
     if (t < 98) return 0;
     if (t < 99.5) return 2;
     if (t < 100.4) return 4;
     if (t < 102) return 7;
     return 9;
   }
-  // fallback to symptom presence
   if (record.symptoms && record.symptoms.some(s => s.toLowerCase() === "fever")) return 5;
   return 0;
 }
 
 function painSeverityFromRecord(record) {
-  // chest pain counts more than headache
   let score = 0;
   if (record.symptoms && record.symptoms.length) {
     const sLower = record.symptoms.map(s => s.toLowerCase());
@@ -172,9 +155,6 @@ function painSeverityFromRecord(record) {
   return score;
 }
 
-/*******************************
- * Disease detection + fetches *
- *******************************/
 function detectDiseaseType(tags) {
   const name = (tags.name || "").toLowerCase();
   const desc = (tags.description || "").toLowerCase();
@@ -249,9 +229,7 @@ async function fetchHospitals(lat, lon) {
   }
 }
 
-/************************
- * IndexedDB - load data *
- ************************/
+
 async function loadPersistedData() {
   try {
     const savedProfile = await dbGetAll(STORE_PROFILE);
@@ -284,9 +262,6 @@ async function loadPersistedData() {
   }
 }
 
-/**************************************
- * Search / nearest / rendering logic *
- **************************************/
 function nearest(type) {
   if (!type) return null;
   const q = type.toLowerCase().trim();
@@ -331,9 +306,6 @@ function searchHospitals() {
   renderHospitals();
 }
 
-/***********************
- * Rendering Functions *
- ***********************/
 function renderSidebar() {
   const sidebarContent = document.querySelector(".sidebar-content");
   if (!sidebarContent) return;
@@ -410,7 +382,6 @@ function renderDashboard() {
 
   document.getElementById("currentDate").textContent = new Date(latestRecord.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 
-  // show summary (we don't show heart rate/oxygen here — left minimal)
   const temp = (latestRecord.temperature != null) ? `${latestRecord.temperature} °F` : "—";
   const urine = latestRecord.urine ? latestRecord.urine : "—";
   const notes = latestRecord.notes ? latestRecord.notes : "";
@@ -477,12 +448,7 @@ function renderSymptomCheckboxes() {
   }).join("");
 }
 
-/*******************************
- * Trends graph (Chart.js)     *
- *
- * Replaced numeric HR/O2 series with
- * qualitative "Fever Severity" and "Pain Severity"
- *******************************/
+
 async function ensureChartJsLoaded() {
   if (window.Chart) return Promise.resolve();
   return new Promise((resolve, reject) => {
@@ -511,15 +477,13 @@ async function renderTrends() {
     return;
   }
 
-  // Build qualitative series from last N records (oldest -> newest)
   const lastRecords = state.healthRecords.slice(0, 20).slice().reverse();
   const labels = lastRecords.map(r => new Date(r.date).toLocaleDateString("en-US", { month: "short", day: "numeric" }));
   const feverData = lastRecords.map(r => feverSeverityFromRecord(r));
   const painData = lastRecords.map(r => painSeverityFromRecord(r));
 
-  // Generate short history with descriptive changes
   const historyHtml = state.healthRecords.slice(0, 8).map((record, idx, arr) => {
-    const prev = arr[idx + 1]; // arr is newest-first; idx 0 is newest — but we want compare to next newer? Keep simple: compare to next in slice
+    const prev = arr[idx + 1]; 
     let feverNote = "";
     let painNote = "";
     if (prev) {
