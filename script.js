@@ -61,3 +61,31 @@ async function dbClear(store) {
     r.onerror = () => reject(r.error);
   });
 }
+
+let hospitals = [];
+let userLat = null;
+let userLon = null;
+let Nearest = [];
+let chartInstance = null; // Chart.js instance
+
+const state = {
+  userProfile: null,
+  healthRecords: [],
+  activeAlert: null,
+  medicalConditions: [],
+  medications: [],
+  allergies: [],
+  emergencyOnly: false,
+  selectedSpecialty: "all",
+};
+
+const commonSymptoms = [
+  "Headache",
+  "Dizziness",
+  "Fatigue",
+  "Nausea",
+  "Chest pain",
+  "Shortness of breath",
+  "Cough",
+  "Fever",
+];
