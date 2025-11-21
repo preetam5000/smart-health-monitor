@@ -1047,7 +1047,7 @@ body {
     }
 
     .tabs-list {
-        grid-template-columns: 1fr;
+        grid-template-columns:  1fr;
     }
 
     .filter-container {
