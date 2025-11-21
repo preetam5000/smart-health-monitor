@@ -107,7 +107,275 @@
                     </div>
 
                     <div class="tab-content" id="hospitals">
+                        <div clas<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Monitoring System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Left Sidebar - User Profile -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-content">
+                <!-- Profile content will be inserted here -->
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Header -->
+                <header class="page-header">
+                    <h1>Health Monitoring System</h1>
+                    <p>Track your daily health metrics and get intelligent alerts</p>
+                </header>
+
+                <!-- Emergency Alert Banner -->
+                <div id="alertBanner" class="alert-banner" style="display: none;"></div>
+
+                <!-- Current Vitals Dashboard -->
+                <section class="dashboard" id="dashboard">
+                    <div class="dashboard-header">
+                        <div class="date-display">
+                            <i class="far fa-calendar"></i>
+                            <span id="currentDate"></span>
+                        </div>
+                    </div>
+                    <div class="vitals-grid" id="vitalsGrid"></div>
+                    <div id="symptomsCard" style="display: none;"></div>
+                </section>
+
+                <!-- Tabs -->
+                <div class="tabs-container">
+                    <div class="tabs-list">
+                        <button class="tab-trigger active" data-tab="checkin">
+                            <i class="fas fa-heartbeat"></i>
+                            Daily Check-in
+                        </button>
+                        <button class="tab-trigger" data-tab="trends">
+                            <i class="fas fa-chart-line"></i>
+                            Health Trends
+                        </button>
+                        <button class="tab-trigger" data-tab="hospitals">
+                            <i class="fas fa-hospital"></i>
+                            Find Hospitals
+                        </button>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content active" id="checkin">
                         <div class="card">
+                            <div class="card-header">
+                                <h3>Daily Health Check-in</h3>
+                                <p>Record your vital signs for continuous health monitoring</p>
+                            </div>
+                            <div class="card-content">
+                                <form id="healthForm" class="health-form">
+                                    
+                                        
+                                            
+                                        <div class="form-group">
+                                            <label for="temperature">Temperature (°F)</label>
+                                            <input type="number" step="0.1" id="temperature" placeholder="98.6" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Urine">Urine</label>
+                                            <select id="Urine">
+                                                <option>Colorless</option>
+                                                <option>Pale Yellow</option>
+                                                <option>Orange</option>
+                                                <option>Brown</option>
+                                                <option>Red</option>
+                                            </select>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Symptoms (if any)</label>
+                                        <div class="symptoms-grid" id="symptomsGrid"></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="notes">Additional Notes</label>
+                                        <textarea id="notes" rows="3" placeholder="How are you feeling today? Any concerns?"></textarea>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary btn-full">Submit Health Check-in</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="trends">
+                        <div id="trendsContent"></div>
+                    </div>
+
+                    <div class="tab-content" id="hospitals">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Find Nearby Hospitals</h3>
+                                <p>Locate specialized hospitals near you instantly</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="filter-container">
+                                    <select id="specialtyFilter" class="select-input">
+                                        <option value="all">All Specialties</option>
+                                    </select>
+                                    <button id="emergencyToggle" class="btn btn-outline">
+                                        <i class="far fa-clock"></i>
+                                        Emergency Only
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="hospitalsList"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Profile Setup Modal-------------------------------------------------------------------------- -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Create Your Profile</h2>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="profileForm">
+                    <div class="form-section">
+                        <h3>Personal Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="profileName">Full Name *</label>
+                                <input type="text" id="profileName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileAge">Age *</label>
+                                <input type="number" id="profileAge" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileGender">Gender *</label>
+                                <select id="profileGender" required>
+                                    <option value="">Select gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileBloodType">Blood Type *</label>
+                                <select id="profileBloodType" required>
+                                    <option value="">Select blood type</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileWeight">Weight (kg) *</label>
+                                <input type="number" id="profileWeight" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileHeight">Height (cm) *</label>
+                                <input type="number" id="profileHeight" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Contact Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="profileEmail">Email *</label>
+                                <input type="email" id="profileEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="profilePhone">Phone Number *</label>
+                                <input type="tel" id="profilePhone" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Emergency Contact</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="emergencyContact">Contact Name *</label>
+                                <input type="text" id="emergencyContact" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="emergencyPhone">Contact Phone *</label>
+                                <input type="tel" id="emergencyPhone" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Primary Doctor (Optional)</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="doctorName">Doctor Name</label>
+                                <input type="text" id="doctorName">
+                            </div>
+                            <div class="form-group">
+                                <label for="doctorPhone">Doctor Phone</label>
+                                <input type="tel" id="doctorPhone">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Medical Conditions</h3>
+                        <div class="tag-input-container">
+                            <input type="text" id="conditionInput" placeholder="Add a condition">
+                            <button type="button" id="addCondition" class="btn btn-sm">Add</button>
+                        </div>
+                        <div id="conditionsList" class="tags-list"></div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Current Medications</h3>
+                        <div class="tag-input-container">
+                            <input type="text" id="medicationInput" placeholder="Add a medication">
+                            <button type="button" id="addMedication" class="btn btn-sm">Add</button>
+                        </div>
+                        <div id="medicationsList" class="tags-list"></div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Allergies</h3>
+                        <div class="tag-input-container">
+                            <input type="text" id="allergyInput" placeholder="Add an allergy">
+                            <button type="button" id="addAllergy" class="btn btn-sm">Add</button>
+                        </div>
+                        <div id="allergiesList" class="tags-list"></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Profile</button>
+                        <button type="button" class="btn btn-outline" id="cancelProfile">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+s="card">
                             <div class="card-header">
                                 <h3>Find Nearby Hospitals</h3>
                                 <p>Locate specialized hospitals near you instantly</p>
