@@ -1,8 +1,3 @@
-// app.js - with IndexedDB persistence and Chart.js trends graph
-
-/***********************
- * IndexedDB Utilities *
- ***********************/
 const DB_NAME = "health-db";
 const DB_VERSION = 1;
 const STORE_PROFILE = "profile";
