@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -29,16 +28,12 @@ body {
     display: flex;
     min-height: 100vh;
     background: linear-gradient(135deg, #b7c4e5 0%, #ffffff 50%, #ddceee 100%);
-    background: linear-gradient(135deg, #b7c4e5 0%, #ffffff 50%, #ddceee 100%);
-    background: linear-gradient(135deg, #ebf4ff 0%, #ffffff 50%, #f0fdf4 100%);
 }
 
 /* Sidebar */
 .sidebar {
     width: 320px;
     background: linear-gradient(rgb(242, 245, 249),rgb(235, 238, 249));
-    background: linear-gradient(rgb(242, 245, 249),rgb(235, 238, 249));
-    background: white;
     border-right: 1px solid #e5e7eb;
     overflow-y: auto;
     position: sticky;
@@ -154,8 +149,6 @@ body {
 
 .info h4 i {
     color: #081b46;
-    color: #081b46;
-    color: #2563eb;
 }
 
 .profile-info {
@@ -205,8 +198,6 @@ body {
     display: inline-block;
     padding: 0.25rem 0.75rem;
     background: #f5f8ee;
-    background: #f5f8ee;
-    background: #f3f4f6;
     border: 1px solid #e5e7eb;
     border-radius: 9999px;
     font-size: 0.75rem;
@@ -508,7 +499,6 @@ body {
 
 .symptoms-list {
   padding: 10px;
-  padding: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
@@ -614,7 +604,6 @@ body {
 
 .form-group {
     padding: 3%;
-    padding: 3%;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -658,7 +647,6 @@ body {
 
 .symptoms-grid {
     padding: 10px;
-    padding: 10px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 0.75rem;
@@ -699,8 +687,6 @@ body {
 
 .btn-primary {
     background: #061535;
-    background: #061535;
-    background: #2563eb;
     color: white;
 }
 
@@ -1065,8 +1051,6 @@ body {
 
     .tabs-list {
         grid-template-columns: 1fr;
-        grid-template-columns: 1fr;
-        grid-template-columns:  1fr;
     }
 
     .filter-container {
@@ -1077,4 +1061,3 @@ body {
         min-width: 100%;
     }
 }
-
