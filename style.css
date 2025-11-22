@@ -27,13 +27,21 @@ body {
 .app-container {
     display: flex;
     min-height: 100vh;
+<<<<<<< Updated upstream
     background: linear-gradient(135deg, #b7c4e5 0%, #ffffff 50%, #ddceee 100%);
+=======
+    background: linear-gradient(135deg, #ebf4ff 0%, #ffffff 50%, #f0fdf4 100%);
+>>>>>>> Stashed changes
 }
 
 /* Sidebar */
 .sidebar {
     width: 320px;
+<<<<<<< Updated upstream
     background: linear-gradient(rgb(242, 245, 249),rgb(235, 238, 249));
+=======
+    background: white;
+>>>>>>> Stashed changes
     border-right: 1px solid #e5e7eb;
     overflow-y: auto;
     position: sticky;
@@ -148,7 +156,11 @@ body {
 }
 
 .info h4 i {
+<<<<<<< Updated upstream
     color: #081b46;
+=======
+    color: #2563eb;
+>>>>>>> Stashed changes
 }
 
 .profile-info {
@@ -197,7 +209,11 @@ body {
 .tag {
     display: inline-block;
     padding: 0.25rem 0.75rem;
+<<<<<<< Updated upstream
     background: #f5f8ee;
+=======
+    background: #f3f4f6;
+>>>>>>> Stashed changes
     border: 1px solid #e5e7eb;
     border-radius: 9999px;
     font-size: 0.75rem;
@@ -498,7 +514,10 @@ body {
 }
 
 .symptoms-list {
+<<<<<<< Updated upstream
   padding: 10px;
+=======
+>>>>>>> Stashed changes
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
@@ -603,7 +622,10 @@ body {
 }
 
 .form-group {
+<<<<<<< Updated upstream
     padding: 3%;
+=======
+>>>>>>> Stashed changes
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -646,7 +668,10 @@ body {
 }
 
 .symptoms-grid {
+<<<<<<< Updated upstream
     padding: 10px;
+=======
+>>>>>>> Stashed changes
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 0.75rem;
@@ -686,7 +711,11 @@ body {
 }
 
 .btn-primary {
+<<<<<<< Updated upstream
     background: #061535;
+=======
+    background: #2563eb;
+>>>>>>> Stashed changes
     color: white;
 }
 
