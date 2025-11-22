@@ -3,117 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div class="app-container">
-        <!-- Left Sidebar - User Profile -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-content">
-                <!-- Profile content will be inserted here -->
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="container">
-                <!-- Header -->
-                <header class="page-header">
-                    <h1>Health Monitoring System</h1>
-                    <p>Track your daily health metrics and get intelligent alerts</p>
-                </header>
-
-                <!-- Emergency Alert Banner -->
-                <div id="alertBanner" class="alert-banner" style="display: none;"></div>
-
-                <!-- Current Vitals Dashboard -->
-                <section class="dashboard" id="dashboard">
-                    <div class="dashboard-header">
-                        <div class="date-display">
-                            <i class="far fa-calendar"></i>
-                            <span id="currentDate"></span>
-                        </div>
-                    </div>
-                    <div class="vitals-grid" id="vitalsGrid"></div>
-                    <div id="symptomsCard" style="display: none;"></div>
-                </section>
-
-                <!-- Tabs -->
-                <div class="tabs-container">
-                    <div class="tabs-list">
-                        <button class="tab-trigger active" data-tab="checkin">
-                            <i class="fas fa-heartbeat"></i>
-                            Daily Check-in
-                        </button>
-                        <button class="tab-trigger" data-tab="trends">
-                            <i class="fas fa-chart-line"></i>
-                            Health Trends
-                        </button>
-                        <button class="tab-trigger" data-tab="hospitals">
-                            <i class="fas fa-hospital"></i>
-                            Find Hospitals
-                        </button>
-                    </div>
-
-                    <!-- Tab Content -->
-                    <div class="tab-content active" id="checkin">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Daily Health Check-in</h3>
-                                <p>Record your vital signs for continuous health monitoring</p>
-                            </div>
-                            <div class="card-content">
-                                <form id="healthForm" class="health-form">
-                                    
-                                        
-                                            
-                                        <div class="form-group">
-                                            <label for="temperature">Temperature (°F)</label>
-                                            <input type="number" step="0.1" id="temperature" placeholder="98.6" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="Urine">Urine</label>
-                                            <select id="Urine">
-                                                <option>Colorless</option>
-                                                <option>Pale Yellow</option>
-                                                <option>Orange</option>
-                                                <option>Brown</option>
-                                                <option>Red</option>
-                                            </select>
-                                        </div>
-                                        
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Symptoms (if any)</label>
-                                        <div class="symptoms-grid" id="symptomsGrid"></div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="notes">Additional Notes</label>
-                                        <textarea id="notes" rows="3" placeholder="How are you feeling today? Any concerns?"></textarea>
-                                    </div>
-
-                                    <button type="submit" class="btn btn-primary btn-full">Submit Health Check-in</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-content" id="trends">
-                        <div id="trendsContent"></div>
-                    </div>
-
-                    <div class="tab-content" id="hospitals">
-                        <div clas<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health Monitoring System</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -372,38 +263,6 @@
         </div>
     </div>
 
-    <script src="app.js"></script>
-</body>
-</html>
-s="card">
-                            <div class="card-header">
-                                <h3>Find Nearby Hospitals</h3>
-                                <p>Locate specialized hospitals near you instantly</p>
-                            </div>
-                            <div class="card-content">
-                                <div class="filter-container">
-                                    <select id="specialtyFilter" class="select-input">
-                                        <option value="all">All Specialties</option>
-                                    </select>
-                                    <button id="emergencyToggle" class="btn btn-outline">
-                                        <i class="far fa-clock"></i>
-                                        Emergency Only
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="hospitalsList"></div>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-
     <script src="script.js"></script>
-=======
-=======
->>>>>>> 55ddc6b882ac70e3740ae175fbbdfac0a670a6db
-    
 </body>
 </html>
