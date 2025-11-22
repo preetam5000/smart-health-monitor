@@ -429,6 +429,7 @@ body {
 }
 
 .symptoms-list {
+<<<<<<< Updated upstream
     display: flex;* {
     margin: 0;
     padding: 0;
@@ -1493,6 +1494,9 @@ body {
     }
 }
 
+=======
+    display: flex;
+>>>>>>> Stashed changes
     flex-wrap: wrap;
     gap: 0.5rem;
 }
