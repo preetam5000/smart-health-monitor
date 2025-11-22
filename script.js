@@ -992,16 +992,6 @@ function removeAllergy(i){state.allergies.splice(i,1); renderTags();}
         });
       } catch (e) { showError("Tab wiring failed: " + (e.message||e)); }
 
-      try {
-        const hospitalsCard = document.querySelector("#hospitals .card-content");
-        if (hospitalsCard && !document.getElementById("search")) {
-          const wrapper = document.createElement("div");
-          wrapper.style.display = "flex"; wrapper.style.gap = "0.5rem"; wrapper.style.marginBottom = "1rem";
-          wrapper.innerHTML = `<input id="search" placeholder="Enter disease type (ex: heart, cancer, dental)" class="text-input" /><button id="searchBtn" class="btn btn-primary">Search</button>`;
-          hospitalsCard.prepend(wrapper);
-          document.getElementById("searchBtn").addEventListener("click", searchHospitals);
-        }
-      } catch (e) { showError("Search UI injection failed: " + (e.message||e)); }
 
       try {
         const specialtyFilter = document.getElementById("specialtyFilter");
