@@ -1,4 +1,3 @@
-// health-app.js - full file (AI suggestion fixes + safe rendering + integration)
 
 // IndexedDB constants
 const DB_NAME = "health-db";
