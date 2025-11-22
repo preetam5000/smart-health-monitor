@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> df37571fb853748411a5eae7424316efda4a729b
 * {
     margin: 0;
     padding: 0;
@@ -27,13 +31,21 @@ body {
 .app-container {
     display: flex;
     min-height: 100vh;
+<<<<<<< HEAD
     background: linear-gradient(135deg, #b7c4e5 0%, #ffffff 50%, #ddceee 100%);
+=======
+    background: linear-gradient(135deg, #ebf4ff 0%, #ffffff 50%, #f0fdf4 100%);
+>>>>>>> df37571fb853748411a5eae7424316efda4a729b
 }
 
 /* Sidebar */
 .sidebar {
     width: 320px;
+<<<<<<< HEAD
     background: linear-gradient(rgb(242, 245, 249),rgb(235, 238, 249));
+=======
+    background: white;
+>>>>>>> df37571fb853748411a5eae7424316efda4a729b
     border-right: 1px solid #e5e7eb;
     overflow-y: auto;
     position: sticky;
@@ -148,7 +160,11 @@ body {
 }
 
 .info h4 i {
+<<<<<<< HEAD
     color: #081b46;
+=======
+    color: #2563eb;
+>>>>>>> df37571fb853748411a5eae7424316efda4a729b
 }
 
 .profile-info {
@@ -197,7 +213,11 @@ body {
 .tag {
     display: inline-block;
     padding: 0.25rem 0.75rem;
+<<<<<<< HEAD
     background: #f5f8ee;
+=======
+    background: #f3f4f6;
+>>>>>>> df37571fb853748411a5eae7424316efda4a729b
     border: 1px solid #e5e7eb;
     border-radius: 9999px;
     font-size: 0.75rem;
@@ -498,7 +518,10 @@ body {
 }
 
 .symptoms-list {
+<<<<<<< HEAD
   padding: 10px;
+=======
+>>>>>>> df37571fb853748411a5eae7424316efda4a729b
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
@@ -603,7 +626,10 @@ body {
 }
 
 .form-group {
+<<<<<<< HEAD
     padding: 3%;
+=======
+>>>>>>> df37571fb853748411a5eae7424316efda4a729b
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -646,7 +672,10 @@ body {
 }
 
 .symptoms-grid {
+<<<<<<< HEAD
     padding: 10px;
+=======
+>>>>>>> df37571fb853748411a5eae7424316efda4a729b
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 0.75rem;
@@ -686,7 +715,11 @@ body {
 }
 
 .btn-primary {
+<<<<<<< HEAD
     background: #061535;
+=======
+    background: #2563eb;
+>>>>>>> df37571fb853748411a5eae7424316efda4a729b
     color: white;
 }
 
@@ -1050,14 +1083,27 @@ body {
     }
 
     .tabs-list {
+<<<<<<< HEAD
         grid-template-columns: 1fr;
+=======
+        grid-template-columns:  1fr;
+>>>>>>> df37571fb853748411a5eae7424316efda4a729b
     }
 
     .filter-container {
         flex-direction: column;
     }
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> df37571fb853748411a5eae7424316efda4a729b
     .select-input {
         min-width: 100%;
     }
 }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 55ddc6b882ac70e3740ae175fbbdfac0a670a6db
+>>>>>>> df37571fb853748411a5eae7424316efda4a729b
